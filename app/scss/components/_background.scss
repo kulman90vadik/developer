@@ -1,0 +1,89 @@
+.background {
+    position: absolute;
+    z-index: 1;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    &__wrapper {
+        position: relative;
+        width: 100%;
+        display: flex;
+        transform: rotate(-30deg);
+        white-space: nowrap;
+        top: -50%;
+        font-size: 64px;
+        &:nth-child(even) {
+            .background__item {
+                animation: animation-3 160s linear infinite;
+                animation-delay: -160s;
+                &:nth-child(2) {
+                    animation: animation-4 160s linear infinite;
+                    animation-delay: -80s;
+                }
+            }
+        }
+    }
+
+    &__item {
+        animation: animation-1 160s linear infinite;
+        animation-delay: -160s;
+        padding: 0 10px;
+        &:nth-child(2) {
+            animation: animation-2 160s linear infinite;
+            animation-delay: -80s;
+        }
+    }
+
+    & i {    
+        color: rgba(0, 0, 0, 0.5);
+        // margin: 0 10px;
+        padding: 0 5px;
+        user-select: none;
+        cursor: default;
+        transition: 1s;
+        @media (any-hover:hover) {
+            &:hover {
+                transition: 0s;
+                color: $malibu;
+                text-shadow: 0 0 120px $malibu;
+            }
+        }
+    }
+}
+
+
+@keyframes animation-1 {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+@keyframes animation-2 {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}
+@keyframes animation-3 {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+@keyframes animation-4 {
+    0% {
+        transform: translateX(-200%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+

@@ -1,0 +1,90 @@
+.social{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+    &__link {
+        display: block;
+        position: relative;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 20px rgba($white, 0.18);
+        background-color: $white;
+        outline: transparent;
+        &::before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            border-bottom: 4px solid;
+            transition: 0.5s ease-in-out;
+            font-family: fontAwesome;
+            font-size: 35px;
+            text-align: center;
+            line-height: 52px;
+            overflow: hidden;
+        }
+        &--github {
+            &::before {
+                border-color: $black;
+                content: '\f092';
+                color: $black;
+            }
+        }
+        &--whatsapp {
+            &::before {
+                border-color: $green;
+                content: '\f232';
+                color: $green;
+            }
+        }
+        &--post {
+            &::before {
+                border-color: $buccaneer;
+                content: '\f0e0';
+                color: $buccaneer;
+            }
+        }
+        @media (any-hover:hover) {
+            &:hover {
+                &::before {
+                    height: 100%;
+                }
+            }
+        }
+        &:active {
+            background-color: rgba($white, 0.3);
+        }
+        &:focus {
+            background-color: rgba($white, 0.7);
+        }
+    }
+
+    i {
+        font-size: 35px;
+    }
+
+    & .fa-github-square {
+        -webkit-text-stroke: 1px $black;
+    }
+
+    & .fa-whatsapp {
+        -webkit-text-stroke: 1px $green;
+    }
+
+    & .fa-envelope {
+        -webkit-text-stroke: 1px $buccaneer;
+    }
+
+}

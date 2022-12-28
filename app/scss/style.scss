@@ -1,12 +1,17 @@
-gulp@import './settings/fonts';
+@import './settings/fonts';
 @import './settings/vars';
 @import './settings/mixins';
 @import './settings/reset';
 @import './settings/libs';
 @import './settings/global';
 
-@import './components/header';
-@import './components/footer';
+@import './header';
+@import './home';
+@import './components/background';
+@import './components/logo';
+@import './components/menu';
+@import './components/social';
+@import './footer';
 
 
 
