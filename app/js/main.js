@@ -5,6 +5,7 @@ window.addEventListener('load', function(){
 
 
 
+
     // let headerItems = document.querySelectorAll('.header__btn-item');
     // document.querySelector('.header__btn').addEventListener('click', function(){
     //     document.querySelector('.menu').classList.toggle('menu--active');

@@ -11,8 +11,10 @@
 @import './components/logo';
 @import './components/menu';
 @import './components/social';
+@import './portfolio';
 @import './footer';
 
+@import './components/portfolio-card';
 
 
 
@@ -20,8 +22,9 @@
 
 
 
-
-
+// 
+// @include lineClamp;
+// -webkit-line-clamp: 1;
 
 
 

@@ -1,0 +1,14 @@
+.portfolio {
+    padding: 100px 0 100px 150px;
+
+    &__container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        position: relative;
+        padding: 20px 0;
+        overflow: hidden;
+    }
+}
+
+
