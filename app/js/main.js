@@ -1,7 +1,55 @@
 
-window.addEventListener('load', function(){
+document.addEventListener('DOMContentLoaded', function(){
 
     document.documentElement.classList.add('loaded');
+
+    // scrollAnimation();
+    
+    const scrollAnimation = () => {
+        let windowCenter = (window.innerHeight / 2) + window.scrollY;
+
+        let skills = document.querySelector('.skills');
+        let scrollSkills = skills.offsetTop + (skills.offsetHeight / 4);
+        // let scrollSkills = skills.offsetTop + skills.offsetHeight;
+
+        if(windowCenter >= scrollSkills) {
+            skills.classList.add('skills--animation');
+        } else {
+            skills.classList.remove('skills--animation');
+        }
+
+    };
+
+    scrollAnimation();
+
+    window.addEventListener('scroll', () => {
+        scrollAnimation();
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

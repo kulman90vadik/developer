@@ -1,6 +1,7 @@
 .home {
     position: relative;
     height: 100vh;
+    background-color: $dark;
     &__inner {
         position: absolute;
         z-index: 10;

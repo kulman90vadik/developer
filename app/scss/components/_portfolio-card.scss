@@ -6,7 +6,7 @@
     position: relative;
     overflow: hidden;
     margin-bottom: 30px;
-    box-shadow: 0px 0px 3px 4px rgba(40, 41, 41, 0.2);
+    box-shadow: 0 0 3px 4px rgba(40, 41, 41, 0.2);
     &:nth-child(odd) {
         margin-right: 30px;
     }
@@ -176,6 +176,12 @@
         }
     }
 }
+
+
+
+
+
+
 
 // .portfolio-card {
 //     position: relative;
