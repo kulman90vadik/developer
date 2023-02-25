@@ -1,6 +1,5 @@
 .skills {
-    padding: 100px 0 100px 150px;
-    // height: 2000px;
+    padding: 100px 0;
     &--animation {
         .skills__bg {
             animation: animationBg 2s linear forwards;
@@ -20,33 +19,22 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 30px;
-        // display: flex;
-        // justify-content: space-between;
-        // flex-wrap: wrap;
     }
 
     &__card {
         position: relative;
-        // max-width: 220px;
-        // width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        // justify-content: center;
-        // align-items: center;
-        // height: 250px;
         background-color: #0D0D0D;
         padding: 20px;
     }
-
-
 
     &__bg {
         position: absolute;
         z-index: 10;
         transform: rotate(calc(3.6deg * var(--number)));
         inset: 5px;
-        // animation: animationBg 2s linear forwards;
         &::before {
             position: absolute;
             content: '';
@@ -88,7 +76,6 @@
             stroke-dasharray: 439;
             stroke-dashoffset: calc(439 - (439 * var(--number)) / 100);
             opacity: 0;
-            // animation: animationCircle 1s linear forwards;
             animation-delay: 2.5s;
         }
     }
@@ -101,7 +88,6 @@
         justify-content: center;
         flex-direction: column;
         opacity: 0;
-        // animation: animationCircle 1s linear forwards;
         animation-delay: 2.5s;
     }
 
@@ -151,8 +137,6 @@
         }
     }
 }
-
-
 
 
 @keyframes animationBg {

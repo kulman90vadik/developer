@@ -1,0 +1,204 @@
+.contact {
+    
+    
+    &__container {
+        padding: 100px 0;
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: auto;        
+    }
+
+    &__list {
+        margin-bottom: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 310px;
+        width: 100%;
+        justify-content: space-between;
+        // @include max($md) {
+        //     margin: 0 auto 15px;
+        // }
+        // @include max($s) {
+        //     justify-content: center;
+        // }
+    }
+    &__link {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        display: block;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        outline: transparent;
+    }
+    &__item {
+        position: relative;
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        &--phone {
+            &:hover {
+                .contact__circle {   
+                    animation: outWaveIn 1s cubic-bezier(0.42, 0.0, 0.58, 1.0) forwards, phone 1s linear forwards;
+                }
+                .contact__icon {
+                    fill:#007bb6;
+                }
+            }
+        }
+        &--telegram {
+            &:hover {
+                .contact__icon {
+                    fill:#393a3a;
+                }
+                .contact__circle {    
+                    animation: outWaveIn 1s cubic-bezier(0.42, 0.0, 0.58, 1.0) forwards, telegram 1s linear forwards;
+                }
+            }
+        }
+        &--viber {
+            &:hover {
+                .contact__icon {
+                    fill:#251f7e;
+                }
+                .contact__circle {     
+                    animation: outWaveIn 1s cubic-bezier(0.42, 0.0, 0.58, 1.0) forwards, viber 1s linear forwards;
+                }
+            }
+        }
+        &--whatsapp {
+            &:hover {
+                .contact__icon {
+                    fill:#28bd28;
+                }
+                .contact__circle {    
+                    animation: outWaveIn 1s cubic-bezier(0.42, 0.0, 0.58, 1.0) forwards, whatsapp 1s linear forwards;
+                }
+            }
+        }
+        &--skype {
+            &:hover {
+                .contact__icon {
+                    fill:#51c9ee;
+                }
+                .contact__circle {     
+                    animation: outWaveIn 1s cubic-bezier(0.42, 0.0, 0.58, 1.0) forwards, skype 1s linear forwards;
+                }
+            }
+        }
+        &--email {
+            &:hover {
+                .contact__icon {
+                    fill:#d46419;
+                }
+                .contact__circle {    
+                    animation: outWaveIn 1s cubic-bezier(0.42, 0.0, 0.58, 1.0) forwards, email 1s linear forwards;
+                }
+            }
+        }
+        &:hover {
+            .contact__circle {
+                fill:#ffffff;
+                fill-opacity : 1;      
+            }
+        }
+    }
+    &__circle {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 5px;
+        stroke-dasharray: 40; 
+        transition: all 0.2s ease-in-out;
+        animation: outWaveOut 1s cubic-bezier(0.42, 0.0, 0.58, 1.0) forwards;
+    }
+    &__social {
+        position: absolute;
+        display: flex;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;    
+        transition: all 0.5s ease-in-out;
+    }
+    &__icon {
+        fill: #fff;
+        margin: auto;
+        width: 20px;
+        height: 25px;
+        transition: fill 0.5s ease-in-out;
+    }
+}
+
+
+
+@keyframes outWaveOut {
+    from {
+        stroke-width: 10px;
+        stroke-dasharray: 400;
+    }
+    to {
+        stroke: #fff;
+        stroke-width: 5px;
+        stroke-dasharray: 40; 
+    }
+}
+
+@keyframes outWaveIn {
+    to {
+        stroke-width: 10px;
+        stroke-dasharray: 400;    
+    }
+}
+
+@keyframes phone {
+    from {
+        stroke: #fff;
+    }
+    to {
+        stroke:#007bb6;
+    }
+}
+
+@keyframes telegram {
+    from {
+        stroke: #fff;
+    }
+    to {
+        stroke:#393a3a;
+    }
+}
+@keyframes viber {
+    from {
+        stroke: #fff;
+    }
+    to {
+        stroke:#251f7e;
+    }
+}
+@keyframes whatsapp {
+    from {
+        stroke: #fff;
+    }
+    to {
+        stroke:#28bd28;
+    }
+}
+@keyframes skype {
+    from {
+        stroke: #fff;
+    }
+    to {
+        stroke:#51c9ee;
+    }
+}
+@keyframes email {
+    from {
+        stroke: #fff;
+    }
+    to {
+        stroke:#d46419;
+    }
+}
+

@@ -1,5 +1,7 @@
 .portfolio {
-    padding: 100px 0 100px 150px;
+    padding: 100px 0;
+    background-color: $dark;
+    clip-path: polygon(50% 5%, 100% 0, 100% 95.5%, 50% 100%, 0 95.5%, 0 0);
 
     &__container {
         display: flex;

@@ -16,15 +16,16 @@ body {
 
 .main {
     flex-grow: 1;
-    background-image: url(../images/22.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    padding-left: 150px;
+    // background-image: url(../images/22.png);
+    // background-size: 100% 100%;
+    // background-repeat: no-repeat;
 
 }
 
 body {
     font-family: $ProximaNova;
-    background-color: $dark;
+    background-color: #1a1919;
     font-size: 16px;
     line-height: 1.5;
     color: $white;
