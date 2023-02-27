@@ -2,22 +2,17 @@
 document.addEventListener('DOMContentLoaded', function(){
 
     document.documentElement.classList.add('loaded');
-
-    // scrollAnimation();
-    
+//////////////////////////////
     const scrollAnimation = () => {
-        let windowCenter = (window.innerHeight / 2) + window.scrollY;
-
+        let windowCenter = innerHeight / 2;
         let skills = document.querySelector('.skills');
-        let scrollSkills = skills.offsetTop + (skills.offsetHeight / 4);
-        // let scrollSkills = skills.offsetTop + skills.offsetHeight;
+        let topSkills = skills.getBoundingClientRect().top;
 
-        if(windowCenter >= scrollSkills) {
+        if(windowCenter >= topSkills) {
             skills.classList.add('skills--animation');
         } else {
             skills.classList.remove('skills--animation');
         }
-
     };
 
     scrollAnimation();
@@ -26,13 +21,46 @@ document.addEventListener('DOMContentLoaded', function(){
         scrollAnimation();
     });
 
+////////////////////////////////////////
+
+const headerLinks = document.querySelectorAll('.menu__link');
+for (let link of headerLinks) {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const section = link.getAttribute('href').substr(1);
+        
+        document.getElementById(section).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+        // document.querySelector('.menu').classList.toggle('menu--active');
+        // document.querySelector('.menu__button').classList.toggle('menu__button--active');
+        // document.querySelectorAll('.header__btn-item').forEach(item => {
+        //     item.classList.toggle('header__btn-item--active');
+        // });
+    });
+}
 
 
 
 
 
 
+    // scrollAnimation();
+    
+    // const scrollAnimation = () => {
+    //     let windowCenter = (window.innerHeight / 2) + window.scrollY;
 
+    //     let skills = document.querySelector('.skills');
+    //     let scrollSkills = skills.offsetTop + (skills.offsetHeight / 10);
+
+    //     if(windowCenter >= scrollSkills) {
+    //         skills.classList.add('skills--animation');
+    //     } else {
+    //         skills.classList.remove('skills--animation');
+    //     }
+
+    // };
 
 
 
