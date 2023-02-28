@@ -2,7 +2,9 @@
 document.addEventListener('DOMContentLoaded', function(){
 
     document.documentElement.classList.add('loaded');
+
 //////////////////////////////
+
     const scrollAnimation = () => {
         let windowCenter = innerHeight / 2;
         let skills = document.querySelector('.skills');
@@ -16,12 +18,32 @@ document.addEventListener('DOMContentLoaded', function(){
     };
 
     scrollAnimation();
+    aktivMenuPunkt();
 
     window.addEventListener('scroll', () => {
         scrollAnimation();
+        aktivMenuPunkt();
     });
 
-////////////////////////////////////////
+////////////////////////////////////
+
+function aktivMenuPunkt () {
+    let scrollWidth = window.scrollY;
+    document.querySelectorAll('.section').forEach((item, index) =>{
+        if(item.offsetTop <= scrollWidth) {
+            document.querySelectorAll('.menu a').forEach((elem) => {
+                if(elem.classList.contains('menu__link--active')) {
+                    elem.classList.remove('menu__link--active');
+                }
+            });
+            document.querySelectorAll('.menu li')[index].querySelector('a').classList.add('menu__link--active');
+        } else {
+            document.querySelectorAll('.menu li')[index].querySelector('a').classList.remove('menu__link--active');
+        }
+    });
+}
+
+////////////////////////////////////
 
 const headerLinks = document.querySelectorAll('.menu__link');
 for (let link of headerLinks) {
@@ -40,6 +62,10 @@ for (let link of headerLinks) {
         // });
     });
 }
+
+
+////////////////////////////////////////
+
 
 
 

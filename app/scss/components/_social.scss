@@ -4,9 +4,18 @@
     flex-direction: column;
     width: 100%;
     margin-bottom: 20px;
+    margin-top: auto;
+    @include max($lg) {
+        flex-direction: row;
+        margin: 0 20px 0 auto;
+        width: auto;
+    }
     &__item {
         &:not(:last-child) {
             margin-bottom: 15px;
+            @include max($lg) {
+                margin: 0 20px 0 0;
+            }
         }
     }
     &__link {
@@ -17,8 +26,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        // box-shadow: 0 0 20px rgba($white, 0.18);
-        // background-color: $white;
         outline: transparent;
         &::before {
             position: absolute;
@@ -38,10 +45,8 @@
         &--github {
             &::before {
                 border-color: rgba($white, 0.4);
-                // border-color: $black;
                 content: '\f092';
                 color:  rgba($white, 0.4);
-                // color: $black;
             }
         }
         &--whatsapp {
@@ -75,23 +80,7 @@
 
     i {
         font-size: 35px;
-        // color: rgba(#000, 0.5);
         color: rgba($white, 0.1);
         
     }
-
-    & .fa-github-square {
-        // -webkit-text-stroke: 1px $black;
-    }
-
-    & .fa-whatsapp {
-        // -webkit-text-stroke: 1px $green;
-        
-    }
-
-    & .fa-envelope {
-        // -webkit-text-stroke: 1px $buccaneer;
-        
-    }
-
 }

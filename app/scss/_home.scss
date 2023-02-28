@@ -10,7 +10,10 @@
         color: $white;
         left: 220px;
         top: 200px;
-        padding-left: 20px;
+        // padding-left: 20px;
+        @include max($xl) {
+            left: 80px;
+        }
     }
 
     & .home-title {

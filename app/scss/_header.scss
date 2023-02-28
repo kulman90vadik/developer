@@ -12,6 +12,42 @@
     z-index: 100;
     border: 1px solid transparent;
     box-shadow: inset 0 0 15px 0 transparent;
+    @include max($lg) {
+        width: 100%;
+        height: 80px;
+        padding: 10px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__btn {
+        cursor: pointer;
+        padding: 0;
+        border: none;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        outline: transparent;
+        background-color: transparent;
+        width: 33px;
+        height: 33px;
+        span {
+            display: block;
+            width: 80%;
+            height: 4px;
+            border-radius: 2px;
+            background-color: $malibu;
+            &:not(:last-child) {
+                margin-bottom: 4px;
+            }
+        }
+        @include max($lg) {
+            display: flex;
+            position: relative;
+            z-index: 200;
+        }
+    }
 }
 
 .loaded {
