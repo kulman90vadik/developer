@@ -24,6 +24,9 @@
                 }
             }
         }
+        @include max($md) {
+            font-size: 50px;
+        }
     }
 
     &__item {
@@ -38,17 +41,14 @@
 
     & i {    
         color: rgba(0, 0, 0, 0.5);
-        // margin: 0 10px;
         padding: 0 5px;
         user-select: none;
         cursor: default;
         transition: 1s;
-        @media (any-hover:hover) {
-            &:hover {
-                transition: 0s;
-                color: $malibu;
-                text-shadow: 0 0 120px $malibu;
-            }
+        &:hover {
+            transition: 0s;
+            color: $malibu;
+            text-shadow: 0 0 120px $malibu;
         }
     }
 }

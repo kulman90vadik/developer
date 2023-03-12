@@ -22,30 +22,101 @@
 
     &__btn {
         cursor: pointer;
+        width: 40px;
+        height: 22.5px;
+        position: relative;
+        transform: rotate(0deg);
+        transition: transform 0.5s ease-in-out;
         padding: 0;
         border: none;
         display: none;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         outline: transparent;
         background-color: transparent;
-        width: 33px;
-        height: 33px;
-        span {
-            display: block;
-            width: 80%;
-            height: 4px;
-            border-radius: 2px;
-            background-color: $malibu;
-            &:not(:last-child) {
-                margin-bottom: 4px;
+        &:hover {
+            span {
+                background-color: rgba($malibu, 0.5);
+            }
+        }
+        &:active {
+            span {
+                background-color: $grey;
+            }
+        }
+        &:focus {
+            span {
+                background-color: rgba($grey, 0.8);
             }
         }
         @include max($lg) {
             display: flex;
             position: relative;
             z-index: 200;
+        }
+        
+        span {
+            display: block;
+            position: absolute;
+            height: 5px;
+            width: 50%;
+            background-color: $malibu;
+            opacity: 1;
+            transform: rotate(0deg);
+            transition: transform 0.25s ease-in-out, background-color 0.5s ease-in-out;
+            &:nth-child(even) {
+                left: 50%;
+                border-radius: 0 3px 3px 0;
+            }
+            &:nth-child(odd) {
+                left: 0;
+                border-radius: 3px 0 0 3px;
+            }
+            &:nth-child(1), 
+            &:nth-child(2) {
+                top: 0;
+            }
+            &:nth-child(3), 
+            &:nth-child(4) {
+                top: 9px;
+            }
+            &:nth-child(5), 
+            &:nth-child(6) {
+                top: 18px;
+            }
+        }
+    
+        &--active {
+            span:nth-child(1),
+            span:nth-child(6) {
+                transform: rotate(45deg);
+            }
+            span:nth-child(2),
+            span:nth-child(5) {
+                transform: rotate(-45deg);
+            }
+            span:nth-child(1) {
+                left: 2.5px;
+                top: 3.5px;
+            }
+            span:nth-child(2) {
+                left: calc(50% - 5px);
+                top: 3.5px;
+            }
+            span:nth-child(3) {
+                left: -50%;
+                opacity: 0;
+            }
+            span:nth-child(4) {
+                left: 100%;
+                opacity: 0;
+            }
+            span:nth-child(5) {
+                left: 2.5px;
+                top: 14.5px;
+            }
+            span:nth-child(6) {
+                left: calc(50% - 5px);
+                top: 14.5px;
+            }
         }
     }
 }
@@ -57,3 +128,115 @@
         transition: box-shadow 1s ease 1.5s, border 1s ease 1.5s;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// &__btn {
+//     cursor: pointer;
+//     width: 60px;
+//     height: 45px;
+//     position: relative;
+//     // margin: 30px auto;
+//     transform: rotate(0deg);
+//     transition: .5s ease-in-out;
+//     // padding: 0;
+//     // border: none;
+//     // display: none;
+//     // flex-direction: column;
+//     // align-items: center;
+//     // justify-content: center;
+//     outline: transparent;
+//     background-color: transparent;
+//     // width: 35px;
+//     // height: 35px;
+//     @include max($lg) {
+//         display: flex;
+//         position: relative;
+//         z-index: 200;
+//     }
+//     span {
+//         display: block;
+//         position: absolute;
+//         height: 9px;
+//         width: 50%;
+//         background: #337AB7;
+//         opacity: 1;
+//         transform: rotate(0deg);
+//         transition: .25s ease-in-out;
+//         &:nth-child(even) {
+//             left: 50%;
+//             border-radius: 0 9px 9px 0;
+//         }
+//         &:nth-child(odd) {
+//             left:0px;
+//             border-radius: 9px 0 0 9px;
+//         }
+//         &:nth-child(1), 
+//         &:nth-child(2) {
+//             top: 0px;
+//         }
+//         &:nth-child(3), 
+//         &:nth-child(4) {
+//             top: 18px;
+//         }
+//         &:nth-child(5), 
+//         &:nth-child(6) {
+//             top: 36px;
+//         }
+//     }
+
+//     &--active {
+//         span:nth-child(1),
+//         span:nth-child(6) {
+//             transform: rotate(45deg);
+//         }
+//         span:nth-child(2),
+//         span:nth-child(5) {
+//             transform: rotate(-45deg);
+//         }
+//         span:nth-child(1) {
+//             left: 5px;
+//             top: 7px;
+//         }
+//         span:nth-child(2) {
+//             left: calc(50% - 5px);
+//             top: 7px;
+//         }
+//         span:nth-child(3) {
+//             left: -50%;
+//             opacity: 0;
+//         }
+//         span:nth-child(4) {
+//             left: 100%;
+//             opacity: 0;
+//         }
+//         span:nth-child(5) {
+//             left: 5px;
+//             top: 29px;
+//         }
+//         span:nth-child(6) {
+//             left: calc(50% - 5px);
+//             top: 29px;
+//         }
+//     }
+// }

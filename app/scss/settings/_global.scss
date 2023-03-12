@@ -22,7 +22,7 @@ body {
     }
 }
 
-body {
+.body {
     font-family: $ProximaNova;
     background-color: $bg;
     font-size: 16px;
@@ -30,10 +30,9 @@ body {
     color: $white;
     display: flex;
     flex-direction: column;
-    // @include max($lg) {
-    //     line-height: 1.5;
-    //     font-size: 16px;
-    // }
+    &--hidden {
+        overflow: hidden;
+    }
 }
 
 [class*='__container'] {

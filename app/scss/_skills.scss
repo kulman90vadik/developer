@@ -19,6 +19,16 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 30px;
+        @include max($xl) {
+            gap: 15px;
+        }
+        @include max($lg) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include max($m) {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 20px;
+        }
     }
 
     &__card {
@@ -28,6 +38,9 @@
         align-items: center;
         background-color: #0D0D0D;
         padding: 20px;
+        @include max($m) {
+            padding: 15px;
+        }
     }
 
     &__bg {
@@ -131,7 +144,9 @@
         border-radius: 5px;
         line-height: 1.2;
         border-left: 10px solid var(--color);
-        background-color: #fff;
+        background-color: $white;
+//         @include lineClamp;
+// -webkit-line-clamp: 1;
         &:not(:last-child) {
             margin-bottom: 10px;
         }

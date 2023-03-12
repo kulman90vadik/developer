@@ -3,7 +3,21 @@ document.addEventListener('DOMContentLoaded', function(){
 
     document.documentElement.classList.add('loaded');
 
-//////////////////////////////
+// Burger menu
+
+let headerBurger = document.querySelector('.header__btn');
+headerBurger.addEventListener('click', () => {
+    document.querySelector('.menu').classList.toggle('menu--active');
+    headerBurger.classList.toggle('header__btn--active');
+    document.querySelector('.body').classList.toggle('body--hidden');
+});
+
+// Animation scroll Skills.html
+
+window.addEventListener('scroll', () => {
+    scrollAnimation();
+    aktivMenuPunkt();
+});
 
     const scrollAnimation = () => {
         let windowCenter = innerHeight / 2;
@@ -18,32 +32,36 @@ document.addEventListener('DOMContentLoaded', function(){
     };
 
     scrollAnimation();
+    // Animation scroll menu
     aktivMenuPunkt();
 
-    window.addEventListener('scroll', () => {
-        scrollAnimation();
-        aktivMenuPunkt();
-    });
-
-////////////////////////////////////
+// Animation scroll menu
 
 function aktivMenuPunkt () {
-    let scrollWidth = window.scrollY;
-    document.querySelectorAll('.section').forEach((item, index) =>{
-        if(item.offsetTop <= scrollWidth) {
-            document.querySelectorAll('.menu a').forEach((elem) => {
-                if(elem.classList.contains('menu__link--active')) {
-                    elem.classList.remove('menu__link--active');
-                }
-            });
-            document.querySelectorAll('.menu li')[index].querySelector('a').classList.add('menu__link--active');
-        } else {
-            document.querySelectorAll('.menu li')[index].querySelector('a').classList.remove('menu__link--active');
-        }
-    });
+
+    if (window.matchMedia('(min-width: 990px)').matches) {
+        // ... ваша логика
+        // которая не станет выполняться
+        // если размер больше 540px
+
+        let scrollWidth = window.scrollY;
+        document.querySelectorAll('.section').forEach((item, index) =>{
+            if(item.offsetTop <= scrollWidth) {
+                document.querySelectorAll('.menu a').forEach((elem) => {
+                    if(elem.classList.contains('menu__link--active')) {
+                        elem.classList.remove('menu__link--active');
+                    }
+                });
+                document.querySelectorAll('.menu li')[index].querySelector('a').classList.add('menu__link--active');
+            } else {
+                document.querySelectorAll('.menu li')[index].querySelector('a').classList.remove('menu__link--active');
+            }
+        });
+
+    }
 }
 
-////////////////////////////////////
+// add an active menu item class
 
 const headerLinks = document.querySelectorAll('.menu__link');
 for (let link of headerLinks) {
@@ -55,99 +73,18 @@ for (let link of headerLinks) {
             behavior: 'smooth',
             block: 'start'
         });
-        // document.querySelector('.menu').classList.toggle('menu--active');
-        // document.querySelector('.menu__button').classList.toggle('menu__button--active');
-        // document.querySelectorAll('.header__btn-item').forEach(item => {
-        //     item.classList.toggle('header__btn-item--active');
-        // });
+
+
+        let menu = document.querySelector('.menu');
+        if (menu.classList.contains('menu--active')) {
+            menu.classList.toggle('menu--active');
+            headerBurger.classList.toggle('header__btn--active');
+            document.querySelector('.body').classList.toggle('body--hidden');
+        }
     });
 }
 
 
-////////////////////////////////////////
-
-
-
-
-
-
-
-    // scrollAnimation();
-    
-    // const scrollAnimation = () => {
-    //     let windowCenter = (window.innerHeight / 2) + window.scrollY;
-
-    //     let skills = document.querySelector('.skills');
-    //     let scrollSkills = skills.offsetTop + (skills.offsetHeight / 10);
-
-    //     if(windowCenter >= scrollSkills) {
-    //         skills.classList.add('skills--animation');
-    //     } else {
-    //         skills.classList.remove('skills--animation');
-    //     }
-
-    // };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // let headerItems = document.querySelectorAll('.header__btn-item');
-    // document.querySelector('.header__btn').addEventListener('click', function(){
-    //     document.querySelector('.menu').classList.toggle('menu--active');
-    //     headerItems.forEach(elem => {
-    //         elem.classList.toggle('header__btn-item--active');
-    //     });
-    // });
-
-    // window.addEventListener('scroll', function(){
-    //     if(window.scrollY >= 100) {
-    //         document.querySelector('.header').classList.add('header--active');
-    //         document.querySelector('.home-page__title').classList.add('home-page__title--outLeft');
-    //         document.querySelector('.home-page__name').classList.add('home-page__name--outLeft');
-    //         document.querySelector('.home-page__link').classList.add('home-page__link--outLeft');
-    //     }
-    //     else {
-    //         document.querySelector('.header').classList.remove('header--active');
-    //         document.querySelector('.home-page__title').classList.remove('home-page__title--outLeft');
-    //         document.querySelector('.home-page__name').classList.remove('home-page__name--outLeft');
-    //         document.querySelector('.home-page__link').classList.remove('home-page__link--outLeft');
-    //     }
-    // });
-
-    // const anim = ['html', 'css', 'js', 'sass', 'gulp', 'git', 'jquery', 'figma'];
-    // anim.forEach(id =>
-    //     new Vivus(id, {
-    //         duration: 300,
-    //         type: 'delayed'
-    //     })
-    // );
-
-    // $('.menu__link, .logo, .home-page__link').on('click', function (event) {
-    //     event.preventDefault();
-    //     var id = $(this).attr('href');
-    //     var top = $(id).offset().top;
-    //     $('body,html').animate({scrollTop: top}, 1500);
-
-    //     $('.menu').removeClass('menu--active');
-    //     $('.header__btn-item').removeClass('header__btn-item--active');
-    // });
-
     // new WOW().init();
+
 });

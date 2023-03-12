@@ -7,8 +7,21 @@
     overflow: hidden;
     margin-bottom: 30px;
     box-shadow: 0 0 3px 4px rgba(40, 41, 41, 0.2);
+    clip-path: polygon(50% 3%, 100% 0, 100% 97%, 50% 100%, 0 97%, 0 0);
+    @include max($xl) {
+        max-width: 505px;
+    }
+    @include max($m) {
+        height: 230px;
+    }
+    @include max($s) {
+        height: 190px;
+    }
     &:nth-child(odd) {
         margin-right: 30px;
+        @include max($xl) {
+            margin-right: 0;
+        }
     }
 
     &::after {
@@ -39,6 +52,9 @@
         left: -100%;
         z-index: 8;
         transition: all 0.5s ease-in;
+        @include max($s) {
+            height: 50px;
+        }
     }
 
     &__text {
@@ -53,6 +69,10 @@
         line-height: 60px;
         @include lineClamp;
         -webkit-line-clamp: 1;
+        @include max($s) {
+            line-height: 50px;
+            font-size: 21px;
+        }
     }
 
     &__box {
@@ -89,6 +109,10 @@
             transition: all 0.5s ease-in;
             transition-delay: 0.2s;
         }
+        @include max($s) {
+            width: 35px;
+            height: 17px;
+        }    
     }
 
     &__box-shadow {
@@ -121,6 +145,14 @@
         text-align: center;
         font-weight: 600;
         line-height: 1;
+        @include max($m) {
+            left: 68%;
+        }
+        @include max($s) {
+            width: 100px;
+            height: 100px;
+            font-size: 21px;
+        }
         &::before {
             position: absolute;
             content: "";
@@ -131,47 +163,50 @@
             transition: all 0.3s ease;
             background-color: rgba($malibu, 0.5);
             transition-delay: 0.2s;
+            @include max($s) {
+                width: 130px;
+                height: 130px;
+            }
         }
-        @media (any-hover:hover) {
-            &:hover {
-                &::before {
-                    opacity: 0;
-                    transition: opacity 0.2s ease-in;
-                }
-            }   
-        }
+        &:hover {
+            &::before {
+                opacity: 0;
+                transition: opacity 0.2s ease-in;
+            }
+        }   
     }
 
-    @media (any-hover:hover) {
-        &:hover {
+    &:hover {
+        &::after {
+            transform: scale(1);
+            transition: transform 0.2s ease;
+        }
+        .portfolio-card__description {
+            left: 10%;
+            @include max($s) {
+                left: 5%;
+            }
+        }
+        .portfolio-card__image {
+            transform: scale(1.1);
+        }
+        .portfolio-card__box {
+            left: 75%;
+            &::before {
+                left: -100%;
+            }
             &::after {
-                transform: scale(1);
-                transition: transform 0.2s ease;
+                left: 155%;
             }
-            .portfolio-card__description {
-                left: 10%;
-            }
-            .portfolio-card__image {
-                transform: scale(1.1);
-            }
-            .portfolio-card__box {
-                left: 75%;
-                &::before {
-                    left: -100%;
-                }
-                &::after {
-                    left: 155%;
-                }
-            }
-            .portfolio-card__box-shadow {
-                left: -10%;
-            }
-            .portfolio-card__circle {
-                transform: scale(1);
-                z-index: 50;
-                &::before {
-                    transform: scale(0.9);
-                }
+        }
+        .portfolio-card__box-shadow {
+            left: -10%;
+        }
+        .portfolio-card__circle {
+            transform: scale(1);
+            z-index: 50;
+            &::before {
+                transform: scale(0.9);
             }
         }
     }

@@ -10,11 +10,20 @@
         margin: 0 20px 0 auto;
         width: auto;
     }
+    @include max($s) {
+        margin-right: 6px;
+    }
     &__item {
         &:not(:last-child) {
             margin-bottom: 15px;
             @include max($lg) {
                 margin: 0 20px 0 0;
+            }
+            @include max($md) {
+                margin-right: 15px;
+            }
+            @include max($s) {
+                margin-right: 9px;
             }
         }
     }
@@ -27,6 +36,10 @@
         justify-content: center;
         align-items: center;
         outline: transparent;
+        @include max($md) {
+            width: 40px;
+            height: 40px;
+        }
         &::before {
             position: absolute;
             content: '';
@@ -41,6 +54,11 @@
             text-align: center;
             line-height: 52px;
             overflow: hidden;
+            @include max($md) {
+                border-width: 3px;
+                font-size: 30px;
+                line-height: 41px;
+            }
         }
         &--github {
             &::before {
@@ -63,24 +81,30 @@
                 color: $buccaneer;
             }
         }
-        @media (any-hover:hover) {
-            &:hover {
-                &::before {
-                    height: 100%;
-                }
+        &:hover {
+            &::before {
+                height: 100%;
             }
         }
         &:active {
             background-color: rgba($white, 0.3);
+            &::before {
+                height: 100%;
+            }
         }
         &:focus {
             background-color: rgba($white, 0.7);
+            &::before {
+                height: 100%;
+            }
         }
     }
 
     i {
         font-size: 35px;
         color: rgba($white, 0.1);
-        
+        @include max($md) {
+            font-size: 30px;
+        }
     }
 }

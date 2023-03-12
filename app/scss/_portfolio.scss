@@ -3,12 +3,19 @@
     background-color: $dark;
     clip-path: polygon(50% 5%, 100% 0, 100% 95.5%, 50% 100%, 0 95.5%, 0 0);
 
+    @include max($xl) {
+        clip-path: polygon(50% 3%, 100% 0, 100% 97%, 50% 100%, 0 97%, 0 0);
+    }
+    @include max($md) {
+        clip-path: polygon(50% 1.5%, 100% 0, 100% 98.5%, 50% 100%, 0 98.5%, 0 0);
+    }
+
     &__container {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         position: relative;
-        padding: 20px 0;
+        padding: 20px 15px;
         overflow: hidden;
     }
 }

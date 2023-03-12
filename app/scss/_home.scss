@@ -2,6 +2,9 @@
     position: relative;
     height: 100vh;
     background-color: $dark;
+    @include max($s) {
+        overflow: hidden;
+    }
     &__inner {
         position: absolute;
         z-index: 10;
@@ -9,10 +12,16 @@
         width: 100%;
         color: $white;
         left: 220px;
-        top: 200px;
-        // padding-left: 20px;
+        top: 22%;
         @include max($xl) {
             left: 80px;
+        }
+        @include max($md) {
+            max-width: 370px;
+            left: 15px;
+        }
+        @include max($s) {
+            max-width: 290px;
         }
     }
 
@@ -26,6 +35,8 @@
             color: $dark;
             -webkit-text-stroke: 1px rgba($white, 0.1);
             position: relative;
+            @include lineClamp;
+            -webkit-line-clamp: 1;
             &::before {
                 position: absolute;
                 content: attr(data-title);
@@ -39,14 +50,18 @@
                 overflow: hidden;
                 transition: width 1s ease-in-out;
             }
-            @media (any-hover:hover) {
-                &:hover {
-                    &::before {
-                        transition: width 1s ease-in-out;
-                        width: 100%;
-                    }
+            &:hover {
+                &::before {
+                    transition: width 1s ease-in-out;
+                    width: 100%;
                 }
             }
+        }
+        @include max($md) {
+            font-size: 45px;
+        }
+        @include max($s) {
+            font-size: 35px;
         }
     }
 }
