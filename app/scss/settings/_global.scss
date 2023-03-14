@@ -42,6 +42,25 @@ body {
 }
 
 
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: $malibu rgba($dark, 0.6);
+}
 
-// @include lineClamp;
-// -webkit-line-clamp: 2;
+/* Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: rgba($dark, 0.6);
+}
+
+*::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background-color: $malibu;
+    border-radius: 5px;
+    border: 3px solid rgba($malibu, 0.2);
+}

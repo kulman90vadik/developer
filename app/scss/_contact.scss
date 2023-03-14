@@ -4,7 +4,11 @@
         max-width: 880px;
         background-repeat: no-repeat;
         background-position: right;
-        background-size: contain;        
+        background-size: contain;   
+        @include max($md) {
+            background-size: 0;
+            padding: 20px 15px;
+        }     
     }
 
     &__list {
@@ -13,6 +17,9 @@
         max-width: 310px;
         width: 100%;
         justify-content: center;
+        @include max($md) {
+            margin: 0 auto;
+        } 
     }
 
     &__link {
