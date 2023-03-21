@@ -14,13 +14,13 @@ headerBurger.addEventListener('click', () => {
 
 // Animation scroll Skills.html
 
-window.addEventListener('scroll', () => {
+window.addEventListener('scroll', (e) => {
     scrollAnimation();
     aktivMenuPunkt();
 });
 
     const scrollAnimation = () => {
-        let windowCenter = innerHeight / 2;
+        let windowCenter = window.innerHeight / 2;
         let skills = document.querySelector('.skills');
         let topSkills = skills.getBoundingClientRect().top;
 
@@ -40,22 +40,32 @@ window.addEventListener('scroll', () => {
 function aktivMenuPunkt () {
 
     if (window.matchMedia('(min-width: 990px)').matches) {
-        // ... ваша логика
-        // которая не станет выполняться
-        // если размер больше 540px
-
         let scrollWidth = window.scrollY;
         document.querySelectorAll('.section').forEach((item, index) =>{
-            if(item.offsetTop <= scrollWidth) {
+
+            if (item.classList.contains('.contact') || item.getBoundingClientRect().top <= 800) {
+                
                 document.querySelectorAll('.menu a').forEach((elem) => {
                     if(elem.classList.contains('menu__link--active')) {
                         elem.classList.remove('menu__link--active');
                     }
                 });
                 document.querySelectorAll('.menu li')[index].querySelector('a').classList.add('menu__link--active');
+                    
             } else {
-                document.querySelectorAll('.menu li')[index].querySelector('a').classList.remove('menu__link--active');
+
+                if(item.offsetTop <= scrollWidth) {
+                    document.querySelectorAll('.menu a').forEach((elem) => {
+                        if(elem.classList.contains('menu__link--active')) {
+                            elem.classList.remove('menu__link--active');
+                        }
+                    });
+                    document.querySelectorAll('.menu li')[index].querySelector('a').classList.add('menu__link--active');
+                } else {
+                    document.querySelectorAll('.menu li')[index].querySelector('a').classList.remove('menu__link--active');
+                }
             }
+
         });
 
     }
