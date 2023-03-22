@@ -95,6 +95,6 @@ for (let link of headerLinks) {
 }
 
 
-    // new WOW().init();
+    new WOW().init();
 
 });
