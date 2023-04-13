@@ -94,10 +94,6 @@ for (let link of headerLinks) {
     });
 }
 
-
-    new WOW().init();
-
-
     window.onload = () => {
         const preloader = document.querySelector('.preloader');
         preloader.classList.add('preloader--hide');
